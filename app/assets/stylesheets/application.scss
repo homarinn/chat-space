@@ -30,6 +30,16 @@ a {
   text-decoration: none;
 }
 
+input::placeholder {
+  color: $mColor;
+}
+
+.flash-box {
+  background: $primary;
+  color: white;
+  text-align: center;
+}
+
 .side {
   & a {
     color: white;
@@ -112,8 +122,8 @@ a {
     height: 40px;
     @include paddingLR;
     margin-top: 28px;
-    border: 1px solid #38aef0;
-    color: #38aef0;
+    border: 1px solid $primary;
+    color: $primary;
     line-height: 40px;
   }
 }
@@ -122,6 +132,7 @@ a {
   @include chatWandP;
   @include paddingTB(46px, 46px);
   height: calc(100vh - 282px);
+  background: #fafafa;
 }
 .message {
   margin-bottom: 40px;
@@ -129,7 +140,7 @@ a {
     margin-bottom: 10px;
     display: flex;
     &__user-name {
-      @include font($color: #434A54);
+      @include font($color: $mColor);
     }
     &__daytime {
       @include font(12px, normal, #999);
@@ -137,7 +148,7 @@ a {
     }
   }
   &__text {
-    @include font(14px, normal, #434A54);
+    @include font(14px, normal, $mColor);
   }
 }
 
@@ -173,7 +184,7 @@ a {
       margin-left: 15px;
       @include paddingLR(30px);
       color: white;
-      background-color: #38aef0;
+      background-color: $primary;
       cursor: pointer;
     }
   }
