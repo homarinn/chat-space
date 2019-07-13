@@ -1,1 +1,184 @@
 @import "./reset";
+@import "font-awesome";
+@import "./variable";
+
+@mixin font($fSize: 16px, $fWeight: bold, $color: #fff){
+  font-size: $fSize;
+  font-weight: $fWeight;
+  color: $color;
+}
+
+@mixin paddingLR($padding: 20px){
+  padding: 0 $padding;
+}
+
+@mixin paddingTB($pTop: 20px,$pBottom: 20px){
+  padding-top: $pTop;
+  padding-bottom: $pBottom;
+}
+
+@mixin chatWandP($width: calc(100% - 80px)){
+  width: $width;
+  @include paddingLR(40px);
+}
+
+html, body, .content {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.side {
+  & a {
+    color: white;
+  }
+
+  float: left;
+  width: 300px;
+  height: 100%;
+  margin: 0;
+  background: #2f3e51;
+  &__header {
+    height: 100px;
+    @include paddingLR;
+    background: #253141;
+    display: flex;
+    align-items: center;
+    &__box {
+      display: flex;
+      width: 100%;
+      &__user-name {
+        @include font;
+      }
+      &__menu {
+        display: flex;
+        margin: 0 0 0 auto;
+        & li {
+          margin-left: 0.3rem;
+        }
+      }
+    }
+  }
+}
+
+.groups {
+  @include paddingLR;
+  margin-top: 20px;
+  &__group{
+    margin-bottom: 40px;
+    &__group-name{
+      @include font($fSize: 15px, $fWeight: normal);
+      margin-bottom: 5px;
+    }
+    &__group-chat{
+      @include font($fSize: 11px, $fWeight: normal);
+    }
+  }
+}
+
+
+.chat {
+  float: left;
+  width: calc(100vw - 300px);
+  height: 100%;
+}
+
+.chat-header {
+  @include chatWandP;
+  height: 99px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+    &__left-box {
+      margin-top: 35px;
+      &__group-name {
+        margin-bottom: 15px;
+        @include font(20px, normal, #333);
+      }
+      &__member-list {
+        display: flex;
+        @include font(12px, normal, #999);
+        & li {
+          margin-left: 0.3rem;
+          &:first-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+  &__group-edit {
+    height: 40px;
+    @include paddingLR;
+    margin-top: 28px;
+    border: 1px solid #38aef0;
+    color: #38aef0;
+    line-height: 40px;
+  }
+}
+
+.messages {
+  @include chatWandP;
+  @include paddingTB(46px, 46px);
+  height: calc(100vh - 282px);
+}
+.message {
+  margin-bottom: 40px;
+  &__info {
+    margin-bottom: 10px;
+    display: flex;
+    &__user-name {
+      @include font($color: #434A54);
+    }
+    &__daytime {
+      @include font(12px, normal, #999);
+      margin-left: 10px;
+    }
+  }
+  &__text {
+    @include font(14px, normal, #434A54);
+  }
+}
+
+.form {
+  @include chatWandP;
+  @include paddingTB;
+  background-color: #ddd;
+  &__new-message {
+    display: flex;
+    align-items: center;
+    &__input-box {
+      width: calc(100% - 100px);
+      margin: 0 10px;
+      position: relative;
+      &__input-text {
+        width: calc(100% - 50px);
+        height: 50px;
+        padding-left: 10px;
+        padding-right: 40px;
+        border-style: none;
+      }
+      &__input-image {
+        position: absolute;
+        font-size: 1.3rem;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+      }
+    }
+    &__send {
+      width: 100px;
+      height: 50px;
+      margin-left: 15px;
+      @include paddingLR(30px);
+      color: white;
+      background-color: #38aef0;
+      cursor: pointer;
+    }
+  }
+}
+
+#filesend{
+  display: none;
+}
