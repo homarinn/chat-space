@@ -1,2 +1,7 @@
-%h1 Messages#index
-%p Find me in app/views/messages/index.html.haml
+.content
+  = render "side"
+  .chat
+    = render "chat_header"
+    .messages
+      =render "message"
+    =render "form"
