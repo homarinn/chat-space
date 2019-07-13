@@ -1,0 +1,14 @@
+.groups {
+  @include paddingLR;
+  margin-top: 20px;
+  &__group{
+    margin-bottom: 40px;
+    &__group-name{
+      @include font($fSize: 15px, $fWeight: normal);
+      margin-bottom: 5px;
+    }
+    &__group-chat{
+      @include font($fSize: 11px, $fWeight: normal);
+    }
+  }
+}

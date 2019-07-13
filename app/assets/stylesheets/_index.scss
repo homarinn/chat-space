@@ -1,0 +1,12 @@
+.chat {
+  float: left;
+  width: calc(100vw - 300px);
+  height: 100%;
+}
+
+.messages {
+  @include chatWandP;
+  @include paddingTB(46px, 46px);
+  height: calc(100vh - 282px);
+  background: #fafafa;
+}

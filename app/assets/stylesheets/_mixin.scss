@@ -1,0 +1,19 @@
+@mixin font($fSize: 16px, $fWeight: bold, $color: #fff){
+  font-size: $fSize;
+  font-weight: $fWeight;
+  color: $color;
+}
+
+@mixin paddingLR($padding: 20px){
+  padding: 0 $padding;
+}
+
+@mixin paddingTB($pTop: 20px,$pBottom: 20px){
+  padding-top: $pTop;
+  padding-bottom: $pBottom;
+}
+
+@mixin chatWandP($width: calc(100% - 80px)){
+  width: $width;
+  @include paddingLR(40px);
+}
