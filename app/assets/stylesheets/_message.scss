@@ -1,0 +1,17 @@
+.message {
+  margin-bottom: 40px;
+  &__info {
+    margin-bottom: 10px;
+    display: flex;
+    &__user-name {
+      @include font($color: $mColor);
+    }
+    &__daytime {
+      @include font(12px, normal, #999);
+      margin-left: 10px;
+    }
+  }
+  &__text {
+    @include font(14px, normal, $mColor);
+  }
+}

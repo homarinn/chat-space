@@ -1,0 +1,9 @@
+=render "layouts/flash"
+
+.content
+  = render "side"
+  .chat
+    = render "chat_header"
+    .messages
+      =render "message"
+    =render "form"

@@ -1,0 +1,32 @@
+.chat-header {
+  @include chatWandP;
+  height: 99px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+    &__left-box {
+      margin-top: 35px;
+      &__group-name {
+        margin-bottom: 15px;
+        @include font(20px, normal, #333);
+      }
+      &__member-list {
+        display: flex;
+        @include font(12px, normal, #999);
+        & li {
+          margin-left: 0.3rem;
+          &:first-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+  &__group-edit {
+    height: 40px;
+    @include paddingLR;
+    margin-top: 28px;
+    border: 1px solid $primary;
+    color: $primary;
+    line-height: 40px;
+  }
+}

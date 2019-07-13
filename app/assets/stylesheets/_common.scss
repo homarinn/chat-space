@@ -1,0 +1,17 @@
+html, body, .content {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+input::placeholder {
+  color: $mColor;
+}
+
+.flash-box {
+  background: $primary;
+  color: white;
+  text-align: center;
+}
