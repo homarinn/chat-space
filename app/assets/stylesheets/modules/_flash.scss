@@ -1,0 +1,10 @@
+.flash-box {
+  color: white;
+  text-align: center;
+  .notice {
+    background-color: $primary;
+  }
+  .alert {
+    background-color: $alert;
+  }
+}
