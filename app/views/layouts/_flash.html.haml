@@ -1,2 +1,4 @@
 .flash-box
-  グループを作成しました
+  - flash.each do |message_type, message|
+    %div{ class: "#{message_type}" }
+      = message
