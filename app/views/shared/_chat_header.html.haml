@@ -1,14 +1,10 @@
 .chat-header
   .chat-header__left-box
-    %h2.chat-header__left-box__group-name testgroup
+    %h2.chat-header__left-box__group-name=@group.name
     %ul.chat-header__left-box__member-list
       Member：
-      %li
-        test
-      %li
-        test
-      %li
-        test
-  = link_to root_path do
+      - @group.users.each do |member|
+        %li= member.name
+  = link_to edit_group_path(@group) do
     .chat-header__group-edit
       Edit
