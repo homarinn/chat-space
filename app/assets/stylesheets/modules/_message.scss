@@ -1,5 +1,5 @@
 .message {
-  margin-bottom: 40px;
+  padding-bottom: 40px;
   &__info {
     margin-bottom: 10px;
     display: flex;
@@ -13,5 +13,6 @@
   }
   &__text {
     @include font(14px, normal, $mColor);
+    margin-bottom: 10px;
   }
 }

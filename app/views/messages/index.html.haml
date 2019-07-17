@@ -3,5 +3,5 @@
   .chat
     = render "shared/chat_header"
     .messages
-      =render "shared/message"
+      =render "shared/message", messages: @messages
     =render "shared/form"
