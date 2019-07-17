@@ -1,8 +1,8 @@
 .form
-  %form.form__new-message
-    .form__new-message__input-box
-      %input{ type: "text", name: "chat", id: "chat", class: "form__new-message__input-box__input-text", placeholder: "type a message" }
-      %lavel.form__new-message__input-box__input-image
+  = form_for [@group, @message] do |f|
+    .form__input-box
+      = f.text_field :content, class: "form__input-box__input-text", placeholder: "type a message"
+      = f.label :image, class: "form__input-box__input-image" do
         =fa_icon "image"
-        %input{ type: "file", name: "datafile", id: "filesend" }
-    %input{ type: "submit", value: "Send", class: "form__new-message__send" }
+        = f.file_field :image, class: "hidden"
+    = f.submit "Send", class: "form__submit"

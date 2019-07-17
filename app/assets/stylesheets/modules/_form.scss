@@ -2,40 +2,40 @@
   @include chatWandP;
   @include paddingTB;
   background-color: #ddd;
-  &__new-message {
+  .new_message {
     display: flex;
     align-items: center;
-    &__input-box {
-      width: calc(100% - 100px);
-      margin: 0 10px;
-      position: relative;
-      &__input-text {
-        width: calc(100% - 50px);
-        height: 50px;
-        padding-left: 10px;
-        padding-right: 40px;
-        border-style: none;
-      }
-      &__input-image {
-        position: absolute;
-        font-size: 1.3rem;
-        top: 10px;
-        right: 10px;
-        cursor: pointer;
-      }
-    }
-    &__send {
-      width: 100px;
+  }
+  &__input-box {
+    width: calc(100% - 100px);
+    margin: 0 10px;
+    position: relative;
+    &__input-text {
+      width: calc(100% - 50px);
       height: 50px;
-      margin-left: 15px;
-      @include paddingLR(30px);
-      color: white;
-      background-color: $primary;
+      padding-left: 10px;
+      padding-right: 40px;
+      border-style: none;
+    }
+    &__input-image {
+      position: absolute;
+      font-size: 1.3rem;
+      top: 10px;
+      right: 10px;
       cursor: pointer;
     }
   }
+  &__submit {
+    width: 100px;
+    height: 50px;
+    margin-left: 15px;
+    @include paddingLR(30px);
+    color: white;
+    background-color: $primary;
+    cursor: pointer;
+  }
 }
 
-#filesend{
+.hidden{
   display: none;
 }
