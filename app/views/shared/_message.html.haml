@@ -4,5 +4,4 @@
       %p.message__info__user-name= message.user.name
       %p.message__info__daytime= message.created_at
     %p.message__text= message.content
-    - if message.image.present?
-      = image_tag message.image, height: '200', width: '200'
+    = image_tag message.image, height: '200', width: '200' if message.image.present?
