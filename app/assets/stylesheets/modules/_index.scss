@@ -9,4 +9,5 @@
   @include paddingTB(46px, 46px);
   height: calc(100vh - 282px);
   background: #fafafa;
+  overflow: auto;
 }
