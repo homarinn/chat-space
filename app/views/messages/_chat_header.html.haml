@@ -5,6 +5,6 @@
       Member：
       - @group.users.each do |member|
         %li= member.name
-  = link_to edit_group_path(@group) do
+  = link_to edit_group_path(@group), data: {turbolinks: false} do
     .chat-header__group-edit
       Edit
