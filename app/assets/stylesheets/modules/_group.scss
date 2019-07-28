@@ -75,6 +75,12 @@
       padding: 10px 15px;
       box-sizing: border-box;
     }
+
+    .chat-group-form__search::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
   }
 
   .chat-group-user {
