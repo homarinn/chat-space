@@ -2,11 +2,11 @@ $(function(){
   let buildHTML = (message) => {
     let messageInfo = `<div class="message__info">
                          <p class="message__info__user-name">${message.user_name}<p>
-                         <p class="message__info__daytime">${message.daytime}<p>
+                         <p class="message__info__daytime">${message.created_at}<p>
                        </div>`
     let messageText = message.content ? `<p class="message__text">${message.content}</p>` : ""
     let messageImage = message.image.url ? `<img src="${message.image.url}" width="200" height="200">` : ""
-    let html = `<div class="message">
+    let html = `<div class="message" data-message-id="${message.id}">
                   ${messageInfo}
                   ${messageText}
                   ${messageImage}
