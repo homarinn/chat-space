@@ -1,4 +1,4 @@
-.message{data: {message: {id: message.id}}}
+.message{data: {group: {id: message.group_id}, message: {id: message.id}}}
   .message__info
     %p.message__info__user-name= message.user.name
     %p.message__info__daytime= message.created_at.strftime("%Y/%m/%d(%a) %H:%M:%S")
