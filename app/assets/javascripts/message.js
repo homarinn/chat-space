@@ -58,7 +58,7 @@ $(function(){
       $(".messages").append(insertHTML).animate({scrollTop: $(".messages")[0].scrollHeight}, 'fast');
     })
     .fail(function() {
-      console.log('error');
+      alert('error');
     });
   };
   if(document.URL.match(/messages/)){
