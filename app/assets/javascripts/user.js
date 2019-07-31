@@ -1,6 +1,9 @@
 $(function(){
   let search_result = $("#user-search-result")
   let group_users = $("#chat-group-users")
+  let group_user_ids = $.makeArray(group_users.children().map(function(i, value){
+    return $(value).data("user-id");
+  }));
 
   let appendSearchUser = (user) => {
     let html = `<div class="chat-group-user clearfix">
@@ -18,7 +21,7 @@ $(function(){
   };
 
   let appendGroupMember = (member) => {
-    let html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${member.userId}'>
+    let html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${member.userId}' data-user-id="${member.userId}">
                   <input name='group[user_ids][]' type='hidden' value='${member.userId}'>
                   <p class='chat-group-user__name'>${member.userName}</p>
                   <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
@@ -28,12 +31,12 @@ $(function(){
 
   $("#user-search-field").on("keyup", function(){
     let input = $(this).val()
-
+    
     $.ajax({
       url: '/users',
       type: "GET",
       dataType: 'json',
-      data: { keyword: input }
+      data: { keyword: input, ids: group_user_ids }
     })
     .done(function(users){
       search_result.empty();
@@ -54,10 +57,15 @@ $(function(){
     let target = $(e.target);
     let member = target.data();
     target.parent().remove();
+    group_user_ids.push(member.userId);
     appendGroupMember(member);
   });
 
   group_users.on("click", ".user-search-remove", function(e){
-    $(e.target).parent().remove();
+    let target = $(e.target).parent();
+    group_user_ids = group_user_ids.filter(function(user_id){
+      return user_id !== target.data("user-id")
+    });
+    target.remove();
   });
 });
