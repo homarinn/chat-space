@@ -15,4 +15,4 @@
       = link_to group_messages_path(group), group_id: group.id, data: {turbolinks: false} do
         .groups__group
           %p.groups__group__group-name= group.name
-          %p.groups__group__group-chat= group.show_last_message
+          %p.groups__group__group-chat{id: "lastmessage_#{group.id}"}= group.show_last_message
