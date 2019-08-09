@@ -1,6 +1,8 @@
 .groups {
   @include paddingLR;
   margin-top: 20px;
+  overflow: auto;
+  height: calc(100vh - 120px);
   &__group{
     margin-bottom: 40px;
     &__group-name{
