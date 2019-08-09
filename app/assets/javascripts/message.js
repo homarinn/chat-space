@@ -27,9 +27,15 @@ $(function(){
       processData: false,
       contentType: false
     })
-    .done(function(data){
-      let html = buildHTML(data);
+    .done(function(message){
+      let html = buildHTML(message);
       $(".messages").append(html).animate({scrollTop: $(".messages")[0].scrollHeight}, 'fast');
+      let last_message = $("#lastmessage_" + message.group_id);
+      if (message.content) {
+        last_message.text(message.content);
+      } else {
+        last_message.text("画像が投稿されています。");
+      }
       $(".form__input-box__input-text").val("");
       $("#message_image").val("");
       $(".form__submit").prop('disabled', false);
@@ -51,17 +57,25 @@ $(function(){
       data: {message_id: last_message_id}
     })
     .done(function(messages) {
-      let insertHTML = '';
-      messages.forEach(function(message){
-        insertHTML += buildHTML(message);
-      });
-      $(".messages").append(insertHTML).animate({scrollTop: $(".messages")[0].scrollHeight}, 'fast');
+      if (messages.length !== 0){
+        let insertHTML = '';
+        messages.forEach(function(message){
+          insertHTML += buildHTML(message);
+          let last_message = $("#lastmessage_" + message.group_id);
+          if (message.content) {
+            last_message.text(message.content);
+          } else {
+            last_message.text("画像が投稿されています。");
+          } 
+        });
+        $(".messages").append(insertHTML).animate({scrollTop: $(".messages")[0].scrollHeight}, 'fast');
+      }
     })
     .fail(function() {
       alert('error');
     });
   };
   if(document.URL.match(/messages/)){
-    setInterval(reloadMessages, 5000);
+    setInterval(reloadMessages, 3000);
   }
 });
